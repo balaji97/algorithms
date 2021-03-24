@@ -6,13 +6,13 @@ def binary_search(items, item):
   
   mid = int(len(items)/2)
 
-  if len(items) == 1:
-    if(items[mid] == item):
-      return True
-    else:
-      return False
+  if(items[mid] == item):
+    return True
   
-  return binary_search(items[:mid], item) or binary_search(items[mid:], item)
+  if(items[mid] < item):
+    return binary_search(items[(mid+1):], item)
+  else:
+    return binary_search(items[:mid], item)
 
 if __name__ == "__main__":
-  print(binary_search(items, 6))
+  print(binary_search(items, 0))
